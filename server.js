@@ -5,11 +5,12 @@ const cors = require('cors');
 const path = require('path');
 
 const app = express();
-const PORT = 3000;
-const DATA_FILE = path.join(__dirname, 'users.txt');
+const PORT = process.env.PORT || 3000;
+const DATA_FILE = path.join(__dirname, 'public/users.txt');
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.post('/api/register', (req, res) => {
     const { email, password } = req.body;
@@ -23,6 +24,11 @@ app.post('/api/register', (req, res) => {
         }
         res.json({ message: '¡Datos guardados correctamente!' });
     });
+});
+
+// Servir index.html en la raíz
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 app.listen(PORT, () => {
